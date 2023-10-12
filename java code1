@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class NumberGames {
+    public static void main(String[] args) {
+        Scanner Sc = new Scanner(System.in);
+        int chances = 10;
+        int finalone = 0;
+        boolean againplay = true;
+        System.out.println("Welcome friend");
+        System.out.println("Hey friend you have " + chances + " to win the game");
+        while (againplay) {
+            int randomN = getrandomnumber(1, 100);
+            boolean guesses = false;
+            for (int i = 0; i < chances; i++) {
+                System.out.println("chances" + (i + 1) + " Enter the number you want to estimate:");
+                int user = Sc.nextInt();
+                if (user == randomN) {
+                    guesses = true;
+                    finalone += 1;
+                    System.out.println("You will win the game:");
+                    break;
+                } else if (user > randomN) {
+                    System.out.println("too high");
+                } else {
+                    System.out.println("too low");
+                }
+            }
+            if (guesses = false) {
+                System.out.println("sorry my friend your chances are done.The num is " + randomN);
+            }
+            System.out.println("would you like to play again(yes/no)");
+            String play = Sc.next();
+            againplay = play.equalsIgnoreCase("yes");
+        }
+        System.out.println("hope you enjoyed it my friend");
+        System.out.println("this is your score" + finalone);
+    }
+
+    public static int getrandomnumber(int min, int max) {
+        return (int) (Math.random() * (max - min + 1) + min);
+    }
+}
