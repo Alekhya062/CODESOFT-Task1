@@ -3,11 +3,11 @@ import java.util.Scanner;
 public class NumberGames {
     public static void main(String[] args) {
         Scanner Sc = new Scanner(System.in);
-        int chances = 10;
+        int chances = 7;
         int finalone = 0;
         boolean againplay = true;
         System.out.println("Welcome friend");
-        System.out.println("Hey friend you have " + chances + " to win the game");
+        System.out.println("Hey friend you have " + chances + " chances to win the game");
         while (againplay) {
             int randomN = getrandomnumber(1, 100);
             boolean guesses = false;
@@ -17,7 +17,7 @@ public class NumberGames {
                 if (user == randomN) {
                     guesses = true;
                     finalone += 1;
-                    System.out.println("You will win the game:");
+                    System.out.println("You won the game:");
                     break;
                 } else if (user > randomN) {
                     System.out.println("too high");
